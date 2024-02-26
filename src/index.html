@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <main>
+        <div id="main-form">
+          <form action="/" method="get">
+            <legend>Form Validation</legend>
+            <div>
+              <label for="email-address">Email</label>
+              <input
+                type="email"
+                id="email-address"
+                name="email-address"
+                required
+              />
+              <span></span>
+            </div>
+
+            <div>
+              <label for="select-country">Country</label>
+              <select id="select-country" name="country" multiple required>
+                <option value="switzerland">Switzerland</option>
+                <option value="france">France</option>
+                <option value="germany">Germany</option>
+                <option value="netherlands">The Netherlands</option>
+              </select>
+              <span></span>
+            </div>
+
+            <div>
+              <label for="zip-code">Zip Code</label>
+              <input type="text" id="zip-code" name="zip-code" required />
+              <span></span>
+            </div>
+
+            <div>
+              <label for="user-password">Password</label>
+              <input
+                type="password"
+                id="user-password"
+                name="user-password"
+                minlength="8"
+                maxlength="30"
+              />
+              <span></span>
+            </div>
+
+            <div>
+              <label for="confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                name="confirm-password"
+                id="confirm-password"
+                required
+                minlength="8"
+                maxlength="30"
+              />
+              <span></span>
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
