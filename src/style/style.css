@@ -199,7 +199,8 @@ input#zip-code {
 input#email-address:focus-visible,
 input#user-password:focus-visible,
 input#confirm-password:focus-visible,
-input#zip-code:focus-visible {
+input#zip-code:focus-visible,
+select#select-country:focus-visible {
   outline: 2px solid blue;
   outline-offset: -2px;
 }
@@ -258,4 +259,8 @@ form > button:active {
 
 form > button:hover {
   opacity: 80%;
+}
+
+.zip-code-span {
+  color: red;
 }
