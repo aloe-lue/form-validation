@@ -9,13 +9,15 @@ const confirmPasswordValidate = ({
   const passwordRegExp =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/;
 
-  const isNoValue = ({ password, span, msg }) => {
-    const spanElement = document.querySelector(span);
-    const passwordElement = document.querySelector(password);
-    spanElement.setAttribute('style', 'color: red;');
+  const spanElement = document.querySelector(confirmSpan);
+  const passwordElement = document.querySelector(passwordInput);
+  const confirmPasswordElement = document.querySelector(confirmInput);
 
+  spanElement.setAttribute('style', 'color: red;');
+
+  const isNoValue = () => {
     if (passwordElement.validity.valueMissing) {
-      spanElement.textContent = msg;
+      spanElement.textContent = noValue;
     }
 
     if (!passwordElement.validity.valueMissing) {
@@ -23,29 +25,22 @@ const confirmPasswordValidate = ({
     }
   };
 
-  const isNotValid = ({ password, span, regExp, msg }) => {
-    const passwordElement = document.querySelector(password);
-    const spanElement = document.querySelector(span);
-
+  const isNotValid = () => {
     if (
       !passwordElement.validity.valueMissing &&
-      !regExp.test(passwordElement.value)
+      !passwordRegExp.test(passwordElement.value)
     ) {
-      spanElement.textContent = msg;
+      spanElement.textContent = invalidPassword;
     }
   };
 
-  const isNotMatch = ({ password, span, confirmPassword, msg }) => {
-    const passwordElement = document.querySelector(password);
-    const spanElement = document.querySelector(span);
-    const confirmPasswordElement = document.querySelector(confirmPassword);
-
+  const isNotMatch = () => {
     if (
       passwordElement.value !== confirmPasswordElement.value &&
       !passwordElement.validity.valueMissing &&
       !confirmPasswordElement.validity.valueMissing
     ) {
-      spanElement.textContent = msg;
+      spanElement.textContent = notMatch;
     }
     if (
       passwordElement.value === confirmPasswordElement.value &&
@@ -57,21 +52,9 @@ const confirmPasswordValidate = ({
   };
 
   const confirmingPasswordCases = () => {
-    isNoValue({ password: confirmInput, span: confirmSpan, msg: noValue });
-
-    isNotValid({
-      password: confirmInput,
-      span: confirmSpan,
-      regExp: passwordRegExp,
-      msg: invalidPassword,
-    });
-
-    isNotMatch({
-      password: passwordInput,
-      span: confirmSpan,
-      confirmPassword: confirmInput,
-      msg: notMatch,
-    });
+    isNoValue();
+    isNotValid();
+    isNotMatch();
   };
 
   const focusoutConfirmPassword = () => {
