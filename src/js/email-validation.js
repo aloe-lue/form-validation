@@ -6,32 +6,30 @@ const emailValidation = ({
 }) => {
   const email = document.querySelector(emailElement);
   const emailSpan = document.querySelector(emailSpanElement);
+  emailSpan.setAttribute('style', 'color: red;');
 
-  const invalidValue = () => {
+  const invalidValue = ({ msg }) => {
     if (!email.validity.valid) {
-      emailSpan.textContent = invalidEmailMsg;
-      emailSpan.setAttribute('style', 'color: red;');
+      emailSpan.textContent = msg;
     }
   };
 
-  const noValue = () => {
+  const noValue = ({ msg }) => {
     if (email.validity.valueMissing) {
-      emailSpan.textContent = missingValueMsg;
-      emailSpan.setAttribute('style', 'color: red;');
+      emailSpan.textContent = msg;
     }
   };
 
   const validValue = () => {
     if (email.validity.valid) {
       emailSpan.textContent = '';
-      emailSpan.setAttribute('style', 'color: red;');
     }
   };
 
   const emailCases = () => {
-    invalidValue();
+    invalidValue({ msg: invalidEmailMsg });
     validValue();
-    noValue();
+    noValue({ msg: missingValueMsg });
   };
 
   const focusoutEmail = () =>
