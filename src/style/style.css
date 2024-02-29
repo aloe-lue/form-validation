@@ -153,13 +153,14 @@ form {
   padding: 1rem;
   border-radius: 6px;
   margin: 0.5rem;
-  box-shadow: 0 0 50px 5px #00000030;
+  box-shadow: 0 0 50px 5px #00000050;
   height: min-content;
 }
 form > div {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 legend {
@@ -263,4 +264,12 @@ form > button:hover {
 
 .zip-code-span {
   color: red;
+}
+
+span.image-container {
+  position: absolute;
+  height: 27px;
+  width: 27px;
+  right: 1rem;
+  top: 2.7rem;
 }
