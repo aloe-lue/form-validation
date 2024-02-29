@@ -16,19 +16,19 @@ const confirmPasswordValidate = ({
   spanElement.setAttribute('style', 'color: red;');
 
   const isNoValue = () => {
-    if (passwordElement.validity.valueMissing) {
+    if (confirmPasswordElement.validity.valueMissing) {
       spanElement.textContent = noValue;
     }
 
-    if (!passwordElement.validity.valueMissing) {
+    if (!confirmPasswordElement.validity.valueMissing) {
       spanElement.textContent = '';
     }
   };
 
   const isNotValid = () => {
     if (
-      !passwordElement.validity.valueMissing &&
-      !passwordRegExp.test(passwordElement.value)
+      !confirmPasswordElement.validity.valueMissing &&
+      !passwordRegExp.test(confirmPasswordElement.value)
     ) {
       spanElement.textContent = invalidPassword;
     }
