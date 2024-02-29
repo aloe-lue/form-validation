@@ -47,8 +47,11 @@
                 name="user-password"
                 minlength="8"
                 maxlength="30"
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                required
               />
               <span></span>
+              <span class="image-container"></span>
             </div>
 
             <div>
@@ -57,11 +60,13 @@
                 type="password"
                 name="confirm-password"
                 id="confirm-password"
-                required
                 minlength="8"
                 maxlength="30"
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                required
               />
               <span></span>
+              <span class="image-container"></span>
             </div>
 
             <button type="submit">Submit</button>
