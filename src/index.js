@@ -49,12 +49,12 @@ window.addEventListener('DOMContentLoaded', () => {
   }).focusoutConfirmPassword();
 
   showPassword({
-    imageDiv: 'span[class="image-container"]',
+    imageDiv: 'span[class="user-password"]',
     passwordInput: 'input[id="user-password"]',
   });
 
   showPassword({
-    imageDiv: 'form > div:nth-child(6) > span[class="image-container"]',
+    imageDiv: 'span[class="confirm-password"]',
     passwordInput: 'input[id="confirm-password"]',
   });
 
