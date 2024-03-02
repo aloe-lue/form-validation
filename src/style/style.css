@@ -132,6 +132,10 @@ table {
     format('woff');
 }
 
+body {
+  background-color: white;
+}
+
 *,
 *::before,
 *::after {
@@ -155,6 +159,7 @@ form {
   margin: 0.5rem;
   box-shadow: 0 0 50px 5px #00000050;
   height: min-content;
+  background-color: aliceblue;
 }
 form > div {
   display: flex;
@@ -181,10 +186,7 @@ form div > label {
   padding: 0.5rem 0;
 }
 
-input#email-address,
-input#user-password,
-input#confirm-password,
-input#zip-code {
+input {
   appearance: none;
   flex: 1;
   border-radius: 5px;
@@ -197,20 +199,33 @@ input#zip-code {
     sans-serif;
 }
 
-input#email-address:focus-visible,
-input#user-password:focus-visible,
-input#confirm-password:focus-visible,
-input#zip-code:focus-visible,
+input:focus-visible,
 select#select-country:focus-visible {
   outline: 2px solid blue;
+  outline-offset: -2px;
+}
+
+input:required:invalid,
+select#select-country:required:invalid {
+  background-image: linear-gradient(
+    to bottom right,
+    white,
+    rgb(219, 219, 255),
+    rgb(255, 227, 155)
+  );
+}
+
+input:not(:focus):valid,
+select#select-country:not(:focus):valid {
+  outline: 2px solid green;
   outline-offset: -2px;
 }
 
 select#select-country {
   appearance: none;
   flex: 1;
-  border-radius: 6px;
-  border-width: 2px;
+  border-radius: 6px 0px 0px 6px;
+  border-width: 2px 2px 2px 2px;
   font-size: clamp(14px, 5vw, 18px);
   padding: 0.25rem;
   letter-spacing: 1px;
@@ -266,10 +281,31 @@ form > button:hover {
   color: red;
 }
 
-span.image-container {
+span.user-password,
+span.confirm-password {
   position: absolute;
   height: 27px;
   width: 27px;
   right: 1rem;
   top: 2.7rem;
+}
+
+p.tell-required-fields {
+  font-size: clamp(12px, 5vw, 18px);
+  color: black;
+  padding: 0.25rem;
+  letter-spacing: 1px;
+  font-family: 'roboto-regular', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+label > span,
+p.tell-required-fields > span {
+  color: red;
+}
+
+.invalid-required-fields {
+  outline: 2px solid red;
+  outline-offset: -2px;
 }
