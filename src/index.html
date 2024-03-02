@@ -11,8 +11,11 @@
         <div id="main-form">
           <form action="/" method="get">
             <legend>Form Validation</legend>
+            <p class="tell-required-fields">
+              <span>*</span> symbol indicates this field is required
+            </p>
             <div>
-              <label for="email-address">Email</label>
+              <label for="email-address"><span>*</span>Email</label>
               <input
                 type="email"
                 id="email-address"
@@ -23,7 +26,7 @@
             </div>
 
             <div>
-              <label for="select-country">Country</label>
+              <label for="select-country"><span>*</span>Country</label>
               <select id="select-country" name="country" multiple required>
                 <option value="switzerland">Switzerland</option>
                 <option value="france">France</option>
@@ -34,13 +37,13 @@
             </div>
 
             <div>
-              <label for="zip-code">Zip Code</label>
+              <label for="zip-code"><span>*</span>Zip Code</label>
               <input type="text" id="zip-code" name="zip-code" required />
               <span></span>
             </div>
 
             <div>
-              <label for="user-password">Password</label>
+              <label for="user-password"><span>*</span>Password</label>
               <input
                 type="password"
                 id="user-password"
@@ -51,11 +54,13 @@
                 required
               />
               <span></span>
-              <span class="image-container"></span>
+              <span class="user-password"></span>
             </div>
 
             <div>
-              <label for="confirm-password">Confirm Password</label>
+              <label for="confirm-password"
+                ><span>*</span>Confirm Password</label
+              >
               <input
                 type="password"
                 name="confirm-password"
@@ -66,7 +71,7 @@
                 required
               />
               <span></span>
-              <span class="image-container"></span>
+              <span class="confirm-password"></span>
             </div>
 
             <button type="submit">Submit</button>
